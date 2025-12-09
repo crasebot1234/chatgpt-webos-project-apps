@@ -3,59 +3,60 @@
         {
             "id": "clock",
             "name": "Clock",
-            "description": "A live digital clock window.",
-            "entry": "clock.js",
-            "icon": "icons/clock.svg"
+            "description": "A live digital clock that updates every second.",
+            "version": "1.0.0",
+            "js_url": "https://raw.githubusercontent.com/crasebot1234/chatgpt-webos-project-apps/main/clock.js"
         },
         {
             "id": "calculator",
             "name": "Calculator",
-            "description": "A simple calculator with + - × ÷ .",
-            "entry": "calculator.js",
-            "icon": "icons/calculator.svg"
+            "description": "A fully working calculator with + - × ÷ operations.",
+            "version": "1.0.0",
+            "js_url": "https://raw.githubusercontent.com/crasebot1234/chatgpt-webos-project-apps/main/calculator.js"
         },
         {
             "id": "notes",
             "name": "Notes",
-            "description": "A simple notes app saved locally.",
-            "entry": "notes.js",
-            "icon": "icons/notes.svg"
+            "description": "A simple notes app with auto-save.",
+            "version": "1.0.0",
+            "js_url": "https://raw.githubusercontent.com/crasebot1234/chatgpt-webos-project-apps/main/notes.js"
         },
         {
             "id": "web",
             "name": "Web Browser",
-            "description": "Lightweight browser simulator.",
-            "entry": "web.js",
-            "icon": "icons/web.svg"
+            "description": "Lightweight browser simulator (no iframe).",
+            "version": "1.0.0",
+            "js_url": "https://raw.githubusercontent.com/crasebot1234/chatgpt-webos-project-apps/main/web.js"
         },
         {
             "id": "paint",
             "name": "Paint",
-            "description": "Simple drawing canvas.",
-            "entry": "paint.js",
-            "icon": "icons/paint.svg"
+            "description": "Simple drawing canvas with colors.",
+            "version": "1.0.0",
+            "js_url": "https://raw.githubusercontent.com/crasebot1234/chatgpt-webos-project-apps/main/paint.js"
         },
         {
             "id": "music",
             "name": "Music Player",
-            "description": "Basic audio player.",
-            "entry": "music.js",
-            "icon": "icons/music.svg"
+            "description": "Play audio files with controls.",
+            "version": "1.0.0",
+            "js_url": "https://raw.githubusercontent.com/crasebot1234/chatgpt-webos-project-apps/main/music.js"
         },
         {
             "id": "filemanager",
             "name": "File Manager",
-            "description": "Browse local folder structure (sandboxed).",
-            "entry": "filemanager.js",
-            "icon": "icons/files.svg"
+            "description": "Browse local virtual file system.",
+            "version": "1.0.0",
+            "js_url": "https://raw.githubusercontent.com/crasebot1234/chatgpt-webos-project-apps/main/filemanager.js"
         },
         {
             "id": "terminal",
             "name": "Terminal",
-            "description": "Fake command-line shell simulation.",
-            "entry": "terminal.js",
-            "icon": "icons/terminal.svg"
+            "description": "Fake command shell with commands.",
+            "version": "1.0.0",
+            "js_url": "https://raw.githubusercontent.com/crasebot1234/chatgpt-webos-project-apps/main/terminal.js"
         }
     ]
 }
+
 
