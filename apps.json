@@ -1,62 +1,129 @@
 {
-    "apps": [
-        {
-            "id": "clock",
-            "name": "Clock",
-            "description": "A live digital clock that updates every second.",
-            "version": "1.0.0",
-            "js_url": "https://raw.githubusercontent.com/crasebot1234/chatgpt-webos-project-apps/main/clock.js"
-        },
-        {
-            "id": "calculator",
-            "name": "Calculator",
-            "description": "A fully working calculator with + - × ÷ operations.",
-            "version": "1.0.0",
-            "js_url": "https://raw.githubusercontent.com/crasebot1234/chatgpt-webos-project-apps/main/calculator.js"
-        },
-        {
-            "id": "notes",
-            "name": "Notes",
-            "description": "A simple notes app with auto-save.",
-            "version": "1.0.0",
-            "js_url": "https://raw.githubusercontent.com/crasebot1234/chatgpt-webos-project-apps/main/notes.js"
-        },
-        {
-            "id": "web",
-            "name": "Web Browser",
-            "description": "Lightweight browser simulator (no iframe).",
-            "version": "1.0.0",
-            "js_url": "https://raw.githubusercontent.com/crasebot1234/chatgpt-webos-project-apps/main/web.js"
-        },
-        {
-            "id": "paint",
-            "name": "Paint",
-            "description": "Simple drawing canvas with colors.",
-            "version": "1.0.0",
-            "js_url": "https://raw.githubusercontent.com/crasebot1234/chatgpt-webos-project-apps/main/paint.js"
-        },
-        {
-            "id": "music",
-            "name": "Music Player",
-            "description": "Play audio files with controls.",
-            "version": "1.0.0",
-            "js_url": "https://raw.githubusercontent.com/crasebot1234/chatgpt-webos-project-apps/main/music.js"
-        },
-        {
-            "id": "filemanager",
-            "name": "File Manager",
-            "description": "Browse local virtual file system.",
-            "version": "1.0.0",
-            "js_url": "https://raw.githubusercontent.com/crasebot1234/chatgpt-webos-project-apps/main/filemanager.js"
-        },
-        {
-            "id": "terminal",
-            "name": "Terminal",
-            "description": "Fake command shell with commands.",
-            "version": "1.0.0",
-            "js_url": "https://raw.githubusercontent.com/crasebot1234/chatgpt-webos-project-apps/main/terminal.js"
-        }
-    ]
+  "apps": [
+    {
+      "name": "Clock",
+      "icon": "🕒",
+      "script": "function ClockApp(win){ let d=document.createElement('div'); let t=document.createElement('div'); t.style.fontSize='32px'; d.appendChild(t); win.appendChild(d); setInterval(()=>{t.textContent=new Date().toLocaleTimeString();},1000); }"
+    },
+    {
+      "name": "Calculator",
+      "icon": "🧮",
+      "script": "function CalculatorApp(win){ win.innerHTML='<input id=\"calcDisplay\" style=\"width:100%;font-size:24px;margin-bottom:10px;\"><div id=\"calcBtns\"></div>'; let c=document.getElementById('calcBtns'); let d=document.getElementById('calcDisplay'); ['7','8','9','/','4','5','6','*','1','2','3','-','0','.','=','+'].forEach(b=>{let btn=document.createElement('button'); btn.textContent=b; btn.style.width='25%'; btn.style.height='40px'; btn.onclick=()=>{ if(b==='='){ try{d.value=eval(d.value);}catch(e){d.value='ERR';}} else{d.value+=b;} }; c.appendChild(btn);}); }"
+    },
+    {
+      "name": "Notes",
+      "icon": "📝",
+      "script": "function NotesApp(win){ let t=document.createElement('textarea'); t.style.width='100%'; t.style.height='100%'; t.value=localStorage.notes||''; t.oninput=()=>localStorage.notes=t.value; win.appendChild(t);} "
+    },
+    {
+      "name": "Web Browser",
+      "icon": "🌐",
+      "script": "function WebBrowserApp(win){ let i=document.createElement('input'); i.placeholder='Enter URL (no iframe security)'; i.style.width='80%'; let b=document.createElement('button'); b.textContent='Go'; let d=document.createElement('div'); d.style.marginTop='10px'; win.appendChild(i); win.appendChild(b); win.appendChild(d); b.onclick=()=>{ d.innerHTML='<p>Navigation simulated to: '+i.value+'</p>'; }; }"
+    },
+    {
+      "name": "Paint",
+      "icon": "🎨",
+      "script": "function PaintApp(win){ let c=document.createElement('canvas'); c.width=500; c.height=300; let ctx=c.getContext('2d'); let draw=false; c.onmousedown=()=>draw=true; c.onmouseup=()=>draw=false; c.onmousemove=e=>{ if(draw){ let r=c.getBoundingClientRect(); ctx.fillStyle='black'; ctx.fillRect(e.clientX-r.left,e.clientY-r.top,4,4);}}; win.appendChild(c);} "
+    },
+    {
+      "name": "Music Player",
+      "icon": "🎵",
+      "script": "function MusicPlayerApp(win){ win.innerHTML='<p>Music Player (Mock)</p><button id=\"mpPlay\">Play</button>'; document.getElementById('mpPlay').onclick=()=>alert('Playing music (simulated)');}"
+    },
+    {
+      "name": "File Manager",
+      "icon": "📂",
+      "script": "function FileManagerApp(win){ win.innerHTML='<p>Local file access blocked by browser — simulation only.</p>'; }"
+    },
+    {
+      "name": "Terminal",
+      "icon": "💻",
+      "script": "function TerminalApp(win){ let o=document.createElement('pre'); let i=document.createElement('input'); i.placeholder='Type command'; win.appendChild(o); win.appendChild(i); i.onkeydown=e=>{ if(e.key=='Enter'){ o.textContent+='> '+i.value+'\\n'; i.value=''; }};} "
+    },
+    {
+      "name": "Theme Maker",
+      "icon": "🎨",
+      "script": "function ThemeMakerApp(win){ win.innerHTML='<p>Create custom themes:</p><label>BG Color:</label><input id=\"bg\" type=\"color\"><br><label>Taskbar Color:</label><input id=\"tb\" type=\"color\"><br><button id=\"apply\">Apply</button>'; document.getElementById('apply').onclick=()=>{ localStorage.customTheme=JSON.stringify({bg:bg.value,tb:tb.value}); alert('Theme saved! Switch in Settings.'); }; }"
+    },
+    {
+      "name": "Weather",
+      "icon": "⛅",
+      "script": "function WeatherApp(win){ win.innerHTML='<p>Weather unavailable offline — showing mock data.</p><h2>23° C, Sunny</h2>'; }"
+    },
+    {
+      "name": "Calendar",
+      "icon": "📅",
+      "script": "function CalendarApp(win){ win.innerHTML='<iframe src=\"https://calendar.google.com\" style=\"width:100%;height:100%\"></iframe>'; }"
+    },
+    {
+      "name": "Camera",
+      "icon": "📷",
+      "script": "function CameraApp(win){ win.innerHTML='<p>Camera access blocked — simulation only.</p>'; }"
+    },
+    {
+      "name": "Gallery",
+      "icon": "🖼️",
+      "script": "function GalleryApp(win){ win.innerHTML='<p>Your saved images would appear here.</p>'; }"
+    },
+    {
+      "name": "Maps",
+      "icon": "🗺️",
+      "script": "function MapsApp(win){ win.innerHTML='<p>Maps disabled (no API). Showing mock:</p><img src=\"https://via.placeholder.com/300x200?text=Map\">'; }"
+    },
+    {
+      "name": "Recorder",
+      "icon": "🎙️",
+      "script": "function RecorderApp(win){ win.innerHTML='<p>Microphone unavailable (browser sandbox).</p>'; }"
+    },
+    {
+      "name": "Stopwatch",
+      "icon": "⏱️",
+      "script": "function StopwatchApp(win){ let t=0,run=false; let d=document.createElement('div'); d.style.fontSize='32px'; d.textContent='0.00'; let b=document.createElement('button'); b.textContent='Start/Stop'; setInterval(()=>{ if(run){t+=0.1; d.textContent=t.toFixed(1);} },100); b.onclick=()=>run=!run; win.appendChild(d); win.appendChild(b);} "
+    },
+    {
+      "name": "Timer",
+      "icon": "⏲️",
+      "script": "function TimerApp(win){ let i=document.createElement('input'); i.placeholder='Seconds'; let b=document.createElement('button'); b.textContent='Start'; let d=document.createElement('div'); d.style.fontSize='24px'; win.appendChild(i); win.appendChild(b); win.appendChild(d); b.onclick=()=>{ let t=parseInt(i.value); let x=setInterval(()=>{d.textContent=t; t--; if(t<0){clearInterval(x); alert('DONE');}},1000);}; }"
+    },
+    {
+      "name": "Contacts",
+      "icon": "📇",
+      "script": "function ContactsApp(win){ win.innerHTML='<p>Contacts unavailable offline — mock only.</p>'; }"
+    },
+    {
+      "name": "Messages",
+      "icon": "💬",
+      "script": "function MessagesApp(win){ win.innerHTML='<p>Local-only messaging.</p><textarea style=\"width:100%;height:80%\"></textarea>'; }"
+    },
+    {
+      "name": "RSS Reader",
+      "icon": "📰",
+      "script": "function RSSApp(win){ win.innerHTML='<p>RSS disabled — sandbox mode.</p>'; }"
+    },
+    {
+      "name": "Video Player",
+      "icon": "🎞️",
+      "script": "function VideoPlayerApp(win){ win.innerHTML='<p>Video playback restricted — demo only.</p>'; }"
+    },
+    {
+      "name": "To-Do List",
+      "icon": "📌",
+      "script": "function TodoApp(win){ win.innerHTML='<input id=\"tdi\"><button id=\"tda\">Add</button><ul id=\"tdl\"></ul>'; tdl.innerHTML=localStorage.tdl||''; tda.onclick=()=>{ tdl.innerHTML+='<li>'+tdi.value+'</li>'; localStorage.tdl=tdl.innerHTML; }; }"
+    },
+    {
+      "name": "System Monitor",
+      "icon": "📊",
+      "script": "function SysMonApp(win){ let d=document.createElement('div'); win.appendChild(d); setInterval(()=>{ d.textContent='CPU: '+(10+Math.random()*70).toFixed(0)+'%'; },700); }"
+    },
+    {
+      "name": "CPU Benchmark",
+      "icon": "⚙️",
+      "script": "function BenchmarkApp(win){ win.innerHTML='<p>Running fake CPU benchmark...</p>'; setTimeout(()=>{ win.innerHTML+='<h2>Score: '+(5000+Math.random()*5000).toFixed(0)+'</h2>'; },2000);} "
+    },
+    {
+      "name": "Meme Generator",
+      "icon": "🤣",
+      "script": "function MemeApp(win){ win.innerHTML='<p>Coming soon (mock)!</p>'; }"
+    }
+  ]
 }
-
-
