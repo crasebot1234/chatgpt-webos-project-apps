@@ -1,1 +1,61 @@
+{
+    "apps": [
+        {
+            "id": "clock",
+            "name": "Clock",
+            "description": "A live digital clock window.",
+            "entry": "clock.js",
+            "icon": "icons/clock.svg"
+        },
+        {
+            "id": "calculator",
+            "name": "Calculator",
+            "description": "A simple calculator with + - × ÷ .",
+            "entry": "calculator.js",
+            "icon": "icons/calculator.svg"
+        },
+        {
+            "id": "notes",
+            "name": "Notes",
+            "description": "A simple notes app saved locally.",
+            "entry": "notes.js",
+            "icon": "icons/notes.svg"
+        },
+        {
+            "id": "web",
+            "name": "Web Browser",
+            "description": "Lightweight browser simulator.",
+            "entry": "web.js",
+            "icon": "icons/web.svg"
+        },
+        {
+            "id": "paint",
+            "name": "Paint",
+            "description": "Simple drawing canvas.",
+            "entry": "paint.js",
+            "icon": "icons/paint.svg"
+        },
+        {
+            "id": "music",
+            "name": "Music Player",
+            "description": "Basic audio player.",
+            "entry": "music.js",
+            "icon": "icons/music.svg"
+        },
+        {
+            "id": "filemanager",
+            "name": "File Manager",
+            "description": "Browse local folder structure (sandboxed).",
+            "entry": "filemanager.js",
+            "icon": "icons/files.svg"
+        },
+        {
+            "id": "terminal",
+            "name": "Terminal",
+            "description": "Fake command-line shell simulation.",
+            "entry": "terminal.js",
+            "icon": "icons/terminal.svg"
+        }
+    ]
+}
 
